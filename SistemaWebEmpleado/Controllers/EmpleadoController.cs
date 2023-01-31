@@ -30,11 +30,13 @@ namespace SistemaWebEmpleado.Controllers
             return View(empleado);
         }
 
-        //GET api/department/5
+        //GET /empleado/titulo
         [HttpGet("{titulo}")]
         public ActionResult<IEnumerable<Empleado>> GetBytitulo(string titulo)
         {
-            var empleado = context.Empleados.ToList();
+            var empleado = (from a in context.Empleados
+                            where a.Titulo == titulo
+                            select a).ToList();
             return View("GetByTitulo", empleado);
         }
 
