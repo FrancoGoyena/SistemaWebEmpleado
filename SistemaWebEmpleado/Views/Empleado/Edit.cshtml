@@ -1,0 +1,42 @@
+﻿@model SistemaWebEmpleado.Models.Empleado
+@{
+    ViewData["Title"] = "Editar empleado";
+}
+    <h2>Editar Medico</h2>
+    @using (Html.BeginForm("Edit", "Empleado", FormMethod.Post))
+    {
+        <p>
+            @Html.LabelFor(model=>model.Nombre)
+            @Html.TextBoxFor(model=>model.Nombre)
+            @Html.ValidationMessageFor(model=>model.Nombre)
+        </p>
+        <p>
+            @Html.LabelFor(model=>model.Apellido)
+            @Html.TextBoxFor(model=>model.Apellido)
+            @Html.ValidationMessageFor(model=>model.Apellido)
+        </p>
+        <p>
+            @Html.LabelFor(model=>model.DNI)
+            @Html.TextBoxFor(model=>model.DNI)
+            @Html.ValidationMessageFor(model=>model.DNI)
+        </p
+        <p>
+            @Html.LabelFor(model=>model.Legajo)
+            @Html.TextBoxFor(model=>model.Legajo)
+            @Html.ValidationMessageFor(model=>model.Legajo)
+        </p>
+        <p>
+            @Html.LabelFor(model=>model.FechaNacimiento)
+            @Html.TextBoxFor(model=>model.FechaNacimiento)
+            @Html.ValidationMessageFor(model=>model.FechaNacimiento)
+        </p>
+        <p>
+            @Html.LabelFor(model=>model.Titulo)
+            @Html.TextBoxFor(model=>model.Titulo)
+            @Html.ValidationMessageFor(model=>model.Titulo)
+        </p>
+
+        <input type="submit" action="Edit"/>
+        @Html.ActionLink("Volver","Index", "Empleado")
+
+    }

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SistemaWebEmpleado.Models.Empleado>
+@{
+    ViewData["Title"] = "Lista de empleados";
+}
+    @Html.ActionLink("Nuevo", "Create","Empleado")
+
+    <table>
+        <tr>
+            <th>@Html.DisplayNameFor(m=> m.Id)</th>
+            <th>@Html.DisplayNameFor(m=> m.Nombre)</th>
+            <th>@Html.DisplayNameFor(m=> m.Apellido)</th>
+            <th>@Html.DisplayNameFor(m=> m.DNI)</th>
+            <th>@Html.DisplayNameFor(m=> m.Legajo)</th>
+            <th>@Html.DisplayNameFor(m=> m.FechaNacimiento)</th>
+            <th>@Html.DisplayNameFor(m=> m.Titulo)</th>
+        </tr>
+
+        @foreach (var empleado in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m=> empleado.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(m=> empleado.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(m=> empleado.Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(m=> empleado.DNI)
+                </td>
+                <td>
+                    @Html.DisplayFor(m=> empleado.Legajo)
+                </td>
+                <td>
+                    @Html.DisplayFor(m=> empleado.FechaNacimiento)
+                </td>
+                <td>
+                    @Html.ActionLink(empleado.Titulo, "GetByTitulo", "Empleado",new{titulo=empleado.Titulo})
+
+                </td>
+
+                <td>
+                @Html.ActionLink("Editar", "Edit", "Empleado",new{id=empleado.Id})
+                @Html.ActionLink("Detalle", "Details", "Empleado",new{id=empleado.Id}) <!--Se crea el new id para que el parametro viaje con el mismo nombre que recibe en el controlador-->
+                @Html.ActionLink("Eliminar", "Delete", "Empleado",new{id=empleado.Id})
+                </td>
+
+            </tr>
+        }
+    </table>
